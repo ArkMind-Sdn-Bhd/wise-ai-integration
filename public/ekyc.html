@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="/wailib-js-sdk/js/wailib-min-1.7.2.css">
+    <script src="/wailib-js-sdk/js/webrtc-adapter.js"></script>
+    <script src="/wailib-js-sdk/js/face-api.min.js"></script>
+    <script src="/wailib-js-sdk/js/wailib-util.js"></script>
+    <script src="/wailib-js-sdk/js/wailib-sdk-1.9.3.js"></script>
+
+    <script type="text/javascript">
+
+        let docType;
+        $(function() {
+            let key = "5803d6d8-5927-4dea-a775-78156fe09497";
+            docType = "mykad";
+            let url = "https://wiseconsole-demo.wiseai.tech/";
+
+            let wiseai = new WAILib.SDK(
+                key,
+                url, "divCam", {
+                    showActionButtons:true,
+                    faceType: 'video',
+                    docType: docType,
+                    cameraFit: true,
+                    enableIDFraudDetection:true
+                }
+            );
+
+            wiseai.cameraCapture({
+                onSuccess: function(stage, result) {
+                    console.log(result);
+                },
+
+                onError:function(stage, e){
+                    showResult(e);
+                }
+
+            });
+
+            wiseai.startCamera();
+        });
+    </script>
+</head>
+<body>
+<div id="divCam"></div>
+<div id="divResult" style="display:none">
+    <div class="container" style="margin-top: 30px">
+        <div class="row justify-content-center">
+            <div class="col-10">
+<!--                <div>-->
+<!--                    <h2>Result:</h2>-->
+<!--                    <div style="padding-top:10px; padding-bottom: 15px">-->
+<!--                        <pre id="preResultJson"></pre>-->
+<!--                    </div>-->
+<!--                    <div id="divCaptured" style="display:none">-->
+<!--                        <h3>Captured Images (without cropping):</h3>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div style="padding-top:20px; padding-bottom: 15px">-->
+<!--                    <a href="/demo" class="demo-main-btn-color">Back</a>-->
+<!--                </div>-->
+            </div>
+        </div>
+    </div>
+</div>
+<!--for demo only...  please do not expose the encryption key to client (html/javascript) at production-->
+<input type="hidden" id="hidDocType" value="mykad"/>
+<input type="hidden" id="hidSdkToken" value="5803d6d8-5927-4dea-a775-78156fe09497"/>
+<input type="hidden" id="hidSdkEncKey" value="/JYb1TpqMCK6n6/BzbZMUwbvEqXVTmzQD11iOpD+dlw="/>
+<input type="hidden" id="hidSdkEncIv" value="wlaCyMAKlCGnScPDKOGgDQ=="/>
+<input type="hidden" id="hidEkycUrl" value="/"/>
+
+</body>
+</html>
