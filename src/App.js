@@ -6,7 +6,7 @@ import axios from "axios";
 function App() {
 
     useEffect(() => {
-        axios.post('https://wiseconsole-demo.wiseai.tech/sdk/token', {}, {
+        axios.post('https://ekyc-redcash.hardcore-carver.42-1-60-64.plesk.page/redCash/api/v1.0/wiseai/token', {}, {
             headers: {
                 Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ3aXNlYWkiLCJzdWIiOiJ3aXNlYWktYXBpIiwiaWQiOiIxNDkiLCJubSI6IldlYiBUZXN0aW5nIiwibWlzYyI6IiIsInZlciI6M30.QVJ-KsQ1G_G9Y2wXYaWPolhmJWJLni4GeQUjay8BIEw`
             }
