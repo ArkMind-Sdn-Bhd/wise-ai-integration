@@ -17,29 +17,31 @@
     <script type="text/javascript">
 
         let docType;
-        $(function() {
-            let key = "cf6c897f-ba9a-4734-8ff4-e16101f447c0";
+        $(function () {
+            let key = "1ce39b89-1f62-4ebc-b48a-207e8ab097b9";
             docType = "mykad";
             let url = "https://wiseconsole-demo.wiseai.tech/";
 
             let wiseai = new WAILib.SDK(
                 key,
-                url, "divCam", {
-                    showActionButtons:true,
+                url,
+                "divCam",
+                {
+                    showActionButtons: true,
                     faceType: 'video',
                     docType: docType,
                     cameraFit: true,
-                    enableIDFraudDetection:true
+                    enableIDFraudDetection: true
                 }
             );
 
             wiseai.cameraCapture({
-                onSuccess: function(stage, result) {
+                onSuccess: function (stage, result) {
                     console.log(result);
                 },
 
-                onError:function(stage, e){
-                    showResult(e);
+                onError: function (stage, e) {
+                    console.log(e);
                 }
 
             });
@@ -54,28 +56,22 @@
     <div class="container" style="margin-top: 30px">
         <div class="row justify-content-center">
             <div class="col-10">
-<!--                <div>-->
-<!--                    <h2>Result:</h2>-->
-<!--                    <div style="padding-top:10px; padding-bottom: 15px">-->
-<!--                        <pre id="preResultJson"></pre>-->
-<!--                    </div>-->
-<!--                    <div id="divCaptured" style="display:none">-->
-<!--                        <h3>Captured Images (without cropping):</h3>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div style="padding-top:20px; padding-bottom: 15px">-->
-<!--                    <a href="/demo" class="demo-main-btn-color">Back</a>-->
-<!--                </div>-->
+                <!--                <div>-->
+                <!--                    <h2>Result:</h2>-->
+                <!--                    <div style="padding-top:10px; padding-bottom: 15px">-->
+                <!--                        <pre id="preResultJson"></pre>-->
+                <!--                    </div>-->
+                <!--                    <div id="divCaptured" style="display:none">-->
+                <!--                        <h3>Captured Images (without cropping):</h3>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <!--                <div style="padding-top:20px; padding-bottom: 15px">-->
+                <!--                    <a href="/demo" class="demo-main-btn-color">Back</a>-->
+                <!--                </div>-->
             </div>
         </div>
     </div>
 </div>
-<!--for demo only...  please do not expose the encryption key to client (html/javascript) at production-->
-<input type="hidden" id="hidDocType" value="mykad"/>
-<input type="hidden" id="hidSdkToken" value="5803d6d8-5927-4dea-a775-78156fe09497"/>
-<input type="hidden" id="hidSdkEncKey" value="/JYb1TpqMCK6n6/BzbZMUwbvEqXVTmzQD11iOpD+dlw="/>
-<input type="hidden" id="hidSdkEncIv" value="wlaCyMAKlCGnScPDKOGgDQ=="/>
-<input type="hidden" id="hidEkycUrl" value="/"/>
 
 </body>
 </html>
