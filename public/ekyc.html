@@ -37,11 +37,26 @@
 
             wiseai.cameraCapture({
                 onSuccess: function (stage, result) {
-                    console.log(result);
+                    alert(JSON.stringify(result));
+                    if(result.status == "success") {
+
+                        let encrypted = result.data.encryptedData;
+                        let iv = localStorage.getItem("iv");
+                        let key = localStorage.getItem("key");
+                        let data = {
+                            iv: iv,
+                            key: key,
+                            result: encrypted
+                        }
+
+
+                        localStorage.setItem("result", JSON.stringify(data));
+                        window.location.href = "/";
+                    }
                 },
 
                 onError: function (stage, e) {
-                    console.log(e);
+                    alert(JSON.stringify(e));
                 }
 
             });
@@ -55,6 +70,7 @@
 <div id="divResult" style="display:none">
     <div class="container" style="margin-top: 30px">
         <div class="row justify-content-center">
+            <div id="result"></div>
             <div class="col-10">
                 <!--                <div>-->
                 <!--                    <h2>Result:</h2>-->
