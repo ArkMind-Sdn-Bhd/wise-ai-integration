@@ -31,7 +31,13 @@
                     faceType: 'video',
                     docType: docType,
                     cameraFit: true,
-                    enableIDFraudDetection: true
+                    enableIDFraudDetection: true,
+                    exports:{
+                        exportDocumentImage: true, //exports both front and back of document images, if any
+                        exportDocumentFaceImage: true, //exports face image which extracted from document, if any
+                        exportFaceImage:true, //exports selfie image, if any
+                        exportLivenessImages:true //exports up to 5 frames from liveness video selfie, if any
+                    },
                 }
             );
 
