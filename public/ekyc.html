@@ -18,7 +18,7 @@
 
         let docType;
         $(function () {
-            let key = localStorage.getItem("tokenKey");
+            let key = localStorage.getItem("token");
             docType = "mykad";
             let url = "https://wiseconsole-demo.wiseai.tech/";
 
@@ -37,7 +37,6 @@
 
             wiseai.cameraCapture({
                 onSuccess: function (stage, result) {
-                    alert(JSON.stringify(result));
                     if(result.status == "success") {
 
                         let encrypted = result.data.encryptedData;
@@ -49,7 +48,7 @@
                             result: encrypted
                         }
 
-
+                        alert(JSON.stringify(data));
                         localStorage.setItem("result", JSON.stringify(data));
                         window.location.href = "/";
                     }

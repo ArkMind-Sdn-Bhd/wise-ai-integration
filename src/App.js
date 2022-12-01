@@ -17,6 +17,9 @@ function App() {
                 .catch((err) => {
                     alert(err);
                 })
+                .finally(() => {
+                    localStorage.removeItem("result");
+                })
 
         }
 
@@ -26,8 +29,9 @@ function App() {
             }
         })
             .then((res) => {
-                localStorage.setItem('key', res.data.data.token);
+                localStorage.setItem('token', res.data.data.token);
                 localStorage.setItem('iv', res.data.data.encryption.iv);
+                localStorage.setItem('key', res.data.data.encryption.key);
             })
     }, [localStorage])
 
