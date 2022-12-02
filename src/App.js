@@ -8,13 +8,13 @@ function App() {
     useEffect(() => {
 
         if (localStorage.getItem("result")) {
-
+            alert("Got Data from Local Storage");
             axios.post("https://ekyc-redcash.hardcore-carver.42-1-60-64.plesk.page/redCash/api/v1.0/wiseai/result", JSON.parse(localStorage.getItem("result")))
                 .then((res) => {
                     console.log(res);
                 })
                 .catch((err) => {
-                    alert(err);
+                    console.log(err);
                 })
 
         }
